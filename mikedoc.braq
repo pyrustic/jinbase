@@ -1,0 +1,11 @@
+# project name
+project_name = 'Jinbase'
+
+# project's website or README
+project_url = '/README.md'
+
+# package directory (relative path)
+pkg_dir = 'src/jinbase'
+
+# API directory (relative path)
+api_dir = 'docs/api'

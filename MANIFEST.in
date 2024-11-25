@@ -1,0 +1,3 @@
+include VERSION
+recursive-include src *
+global-exclude *.py[cod]

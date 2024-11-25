@@ -1,0 +1,15 @@
+TRANSACTION POLICY
+==================
+
+Use litedbc.LiteDBC.cursor context:
+    - for a single Read
+    - for a single Write
+    - for a non-transactional sequence of Reads
+    - for a non-transactional sequence of Writes
+
+Use litedbc.LiteDBC.transaction context:
+    - for a transactional sequence of Reads
+
+Use litedbc.LiteDBC.immediate_transaction context:
+    - for Read-then-Write
+    - for a transactional sequence of Writes
