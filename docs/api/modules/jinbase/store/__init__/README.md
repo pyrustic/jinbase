@@ -12,7 +12,7 @@ The abstract Store class is defined in this module.
     - datatype: Alias for field number 1
     - created\_at: Alias for field number 2
 - [**Store**](/docs/api/modules/jinbase/store/__init__/class-Store.md): Abstract Store class intended to be subclassed by the Kv, Depot, Queue, and Stack stores
-    - [\_abc\_impl](/docs/api/modules/jinbase/store/__init__/class-Store.md#fields-table) = `<_abc._abc_data object at 0x7588e47e0c80>`
+    - [\_abc\_impl](/docs/api/modules/jinbase/store/__init__/class-Store.md#fields-table) = `<_abc._abc_data object at 0x789010e7cd00>`
     - [chunk\_size](/docs/api/modules/jinbase/store/__init__/class-Store.md#properties-table); _getter_
     - [dbc](/docs/api/modules/jinbase/store/__init__/class-Store.md#properties-table); _getter_
     - [filename](/docs/api/modules/jinbase/store/__init__/class-Store.md#properties-table); _getter_

@@ -8,7 +8,7 @@ The Kv store is defined in this module.
 
 ## Classes
 - [**Kv**](/docs/api/modules/jinbase/store/kv/class-Kv.md): This class represents the Kv store. Note that a Kv object isn't intended to be directly instantiated by the user.
-    - [\_abc\_impl](/docs/api/modules/jinbase/store/kv/class-Kv.md#fields-table) = `<_abc._abc_data object at 0x7588e4800540>`
+    - [\_abc\_impl](/docs/api/modules/jinbase/store/kv/class-Kv.md#fields-table) = `<_abc._abc_data object at 0x789010e45800>`
     - [chunk\_size](/docs/api/modules/jinbase/store/kv/class-Kv.md#properties-table); _getter_
     - [dbc](/docs/api/modules/jinbase/store/kv/class-Kv.md#properties-table); _getter_
     - [filename](/docs/api/modules/jinbase/store/kv/class-Kv.md#properties-table); _getter_

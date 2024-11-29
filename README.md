@@ -131,7 +131,7 @@ with Jinbase(db_filename) as db:
     for key, value in kv_store.iterate(asc=False):
         pass
 ```
-> Check out the API reference for the [key-value store](https://github.com/pyrustic/jinbase/tree/master/docs/api).
+> Check out the API reference for the [key-value store](https://github.com/pyrustic/jinbase/blob/master/docs/api/modules/jinbase/store/kv/class-Kv.md).
 
 
 ## Depot
@@ -183,7 +183,7 @@ with Jinbase(db_filename) as db:
         pass
 ```
 
-> Check out the API reference for the [depot store](https://github.com/pyrustic/jinbase/tree/master/docs/api).
+> Check out the API reference for the [depot store](https://github.com/pyrustic/jinbase/blob/master/docs/api/modules/jinbase/store/depot/class-Depot.md).
 
 ## Queue
 The [queue](https://en.wikipedia.org/wiki/Queue_(abstract_data_type)) data model like other stores, is transactional. While this store provides methods to enqueue and dequeue records, there is also `peek_xxx` methods to look at the record at the front or the back of the queue, that is, read it without dequeuing.
@@ -225,7 +225,7 @@ with Jinbase(db_filename) as db:
         ...
 ```
 
-> Check out the API reference for the [queue store](https://github.com/pyrustic/jinbase/tree/master/docs/api).
+> Check out the API reference for the [queue store](https://github.com/pyrustic/jinbase/blob/master/docs/api/modules/jinbase/store/queue/class-Queue.md).
 
 ## Stack
 The [stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)) data model like other stores, is transactional. While this store provides methods to push and pop records, there is also a `peek` method to look at the record on top of the stack, that is, read it without popping it from the stack.
@@ -264,7 +264,7 @@ with Jinbase(db_filename) as db:
         ...
 ```
 
-> Check out the API reference for the [stack store](https://github.com/pyrustic/jinbase/tree/master/docs/api).
+> Check out the API reference for the [stack store](https://github.com/pyrustic/jinbase/blob/master/docs/api/modules/jinbase/store/stack/class-Stack.md).
 
 ## Relational
 As Jinbase uses [SQLite](https://en.wikipedia.org/wiki/SQLite) as its storage engine, it de facto supports the [relational](https://en.wikipedia.org/wiki/Relational_model) data model for which it exposes an interface, [LiteDBC](https://github.com/pyrustic/litedbc), for querying SQLite.
@@ -351,8 +351,8 @@ Not yet implemented.
 # Related projects
 - [LiteDBC](https://github.com/pyrustic/litedbc): Lite database connector
 - [Paradict](https://github.com/pyrustic/paradict): Streamable multi-format serialization with schema 
-- [Asyncpal](https://github.com/pyrustic/asyncpal):  Preemptive concurrency and parallelism for sporadic workloads 
-
+- [Asyncpal](https://github.com/pyrustic/asyncpal): Preemptive concurrency and parallelism for sporadic workloads 
+- [KvF](https://github.com/pyrustic/kvf): The key-value file format with sections 
 
 # Testing and contributing
 Feel free to **open an issue** to report a bug, suggest some changes, show some useful code snippets, or discuss anything related to this project. You can also directly email [me](https://pyrustic.github.io/#contact).

@@ -8,7 +8,7 @@ The Stack store is defined in this module.
 
 ## Classes
 - [**Stack**](/docs/api/modules/jinbase/store/stack/class-Stack.md): This class represents the Stack store. Note that a Stack object isn't intended to be directly instantiated by the user.
-    - [\_abc\_impl](/docs/api/modules/jinbase/store/stack/class-Stack.md#fields-table) = `<_abc._abc_data object at 0x7588e47c6740>`
+    - [\_abc\_impl](/docs/api/modules/jinbase/store/stack/class-Stack.md#fields-table) = `<_abc._abc_data object at 0x789010e46940>`
     - [chunk\_size](/docs/api/modules/jinbase/store/stack/class-Stack.md#properties-table); _getter_
     - [dbc](/docs/api/modules/jinbase/store/stack/class-Stack.md#properties-table); _getter_
     - [filename](/docs/api/modules/jinbase/store/stack/class-Stack.md#properties-table); _getter_
