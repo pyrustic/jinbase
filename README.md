@@ -53,7 +53,7 @@ When for a write operation, the user submits data, whether it is a dictionary, s
 ## Bulk and partial access to records from byte-level to field-level
 Jinbase not only offers bulk access to records, but also two levels of partial access granularity.
 
-SQLite has an impressive capability which is [incremental I/O](https://sqlite.org/c3ref/blob_open.html) for [BLOBs](https://www.sqlite.org/datatype3.html). While this capability is designed to target an individual BLOB column in a row, Jinbase extends it to enable incremental reads of record chunks as if they form a single [unified BLOB](#the-unified-blob-interface).
+SQLite has an impressive capability which is [incremental I/O](https://sqlite.org/c3ref/blob_open.html) for [BLOBs](https://www.sqlite.org/datatype3.html). While this capability is designed to target an individual BLOB column in a row, Jinbase extends this so that for each record, incremental reads cover all chunks as if they were a single [unified BLOB](#the-unified-blob-interface).
 
 For [dictionary](https://en.wikipedia.org/wiki/Associative_array) records only, Jinbase automatically creates and maintains a lightweight index consisting of pointers to root fields, which then allows extracting from an arbitrary record the contents of a field automatically deserialized before being returned.
 
@@ -97,6 +97,7 @@ from datetime import datetime
 from jinbase import Jinbase, JINBASE_HOME
 
 user_data = {"id": 42, "name": "alex", "created_at": datetime.now(),
+             "photo": b'\x45\xA6\x42\xDF\x69',
              "books": {"sci-fi": ["book 1", "book 2"],
                        "thriller": ["book 3", ["book4"]]}}
 
@@ -130,7 +131,7 @@ with Jinbase(db_filename) as db:
     for key, value in kv_store.iterate(asc=False):
         pass
 ```
-> Check out the API reference for the [key-value store](ttps://github.com/pyrustic/jinbase/tree/master/docs/api).
+> Check out the API reference for the [key-value store](https://github.com/pyrustic/jinbase/tree/master/docs/api).
 
 
 ## Depot
@@ -145,6 +146,7 @@ from datetime import datetime
 from jinbase import Jinbase, JINBASE_HOME
 
 user_data = {"id": 42, "name": "alex", "created_at": datetime.now(),
+             "photo": b'\x45\xA6\x42\xDF\x69',
              "books": {"sci-fi": ["book 1", "book 2"],
                        "thriller": ["book 3", ["book4"]]}}
 
@@ -181,7 +183,7 @@ with Jinbase(db_filename) as db:
         pass
 ```
 
-> Check out the API reference for the [depot store](ttps://github.com/pyrustic/jinbase/tree/master/docs/api).
+> Check out the API reference for the [depot store](https://github.com/pyrustic/jinbase/tree/master/docs/api).
 
 ## Queue
 The [queue](https://en.wikipedia.org/wiki/Queue_(abstract_data_type)) data model like other stores, is transactional. While this store provides methods to enqueue and dequeue records, there is also `peek_xxx` methods to look at the record at the front or the back of the queue, that is, read it without dequeuing.
@@ -194,6 +196,7 @@ from datetime import datetime
 from jinbase import Jinbase, JINBASE_HOME
 
 user_data = {"id": 42, "name": "alex", "created_at": datetime.now(),
+             "photo": b'\x45\xA6\x42\xDF\x69',
              "books": {"sci-fi": ["book 1", "book 2"],
                        "thriller": ["book 3", ["book4"]]}}
 
@@ -222,7 +225,7 @@ with Jinbase(db_filename) as db:
         ...
 ```
 
-> Check out the API reference for the [queue store](ttps://github.com/pyrustic/jinbase/tree/master/docs/api).
+> Check out the API reference for the [queue store](https://github.com/pyrustic/jinbase/tree/master/docs/api).
 
 ## Stack
 The [stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)) data model like other stores, is transactional. While this store provides methods to push and pop records, there is also a `peek` method to look at the record on top of the stack, that is, read it without popping it from the stack.
@@ -233,6 +236,7 @@ from datetime import datetime
 from jinbase import Jinbase, JINBASE_HOME
 
 user_data = {"id": 42, "name": "alex", "created_at": datetime.now(),
+             "photo": b'\x45\xA6\x42\xDF\x69',
              "books": {"sci-fi": ["book 1", "book 2"],
                        "thriller": ["book 3", ["book4"]]}}
 
@@ -260,7 +264,7 @@ with Jinbase(db_filename) as db:
         ...
 ```
 
-> Check out the API reference for the [stack store](ttps://github.com/pyrustic/jinbase/tree/master/docs/api).
+> Check out the API reference for the [stack store](https://github.com/pyrustic/jinbase/tree/master/docs/api).
 
 ## Relational
 As Jinbase uses [SQLite](https://en.wikipedia.org/wiki/SQLite) as its storage engine, it de facto supports the [relational](https://en.wikipedia.org/wiki/Relational_model) data model for which it exposes an interface, [LiteDBC](https://github.com/pyrustic/litedbc), for querying SQLite.
@@ -292,7 +296,7 @@ with Jinbase(db_filename) as db:
 
 ```
 
-> Check out [LiteDBC](ttps://github.com/pyrustic/litedbc).
+> Check out [LiteDBC](https://github.com/pyrustic/litedbc).
 
 # The unified BLOB interface
 When for a write operation, the user submits data, whether it is a dictionary, string or integer, Jinbase serializes (except binary data), chunks and stores the data iteratively with the [Paradict](https://github.com/pyrustic/paradict) compact binary data format. Under the hood, these chunks are actually stored as SQLite Binary Large Objects ([BLOBs](https://www.sqlite.org/datatype3.html)). 
@@ -306,7 +310,7 @@ import os.path
 from jinbase import Jinbase, JINBASE_HOME
 
 db_filename = os.path.join(JINBASE_HOME, "test.db")
-CHUNK_SIZE = 1  # 1 byte, thus a 5-bytes input will have 5 chunks
+CHUNK_SIZE = 1  # 1 byte, thus a 5-byte input will have 5 chunks
 
 # The 'chunk_size' can be defined only once when Jinbase creates or opens
 # the database for first time. New values for 'chunk_size' will be ignored.

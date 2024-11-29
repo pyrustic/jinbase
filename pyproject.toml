@@ -1,57 +1,7 @@
+# https://stackoverflow.com/q/76248637 (this is why setup.cfg/setup.py are still relevant !)
 # https://packaging.python.org/en/latest/guides/writing-pyproject-toml
 # https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html
 # https://setuptools.pypa.io/en/latest/userguide/datafiles.html
-
-[project]
-name = "jinbase"
-description = "Multi-model transactional embedded database"
-readme = "README.md"
-authors = [
-    {name = "Pyrustic Architect", email = "rusticalex@yahoo.com"},
-]
-maintainers = [
-    {name = "Pyrustic Architect", email = "rusticalex@yahoo.com"},
-]
-license = {file = "LICENSE"}
-keywords = [
-]
-# https://pypi.org/classifiers/ 
-classifiers = [
-    #"Development Status :: 3 - Alpha"
-    #"Development Status :: 4 - Beta"
-    #"Development Status :: 5 - Production/Stable"
-    "Development Status :: 4 - Beta",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
-    "Intended Audience :: Developers",
-    "Programming Language :: Python",
-    "Programming Language :: Python :: 3",
-    "Topic :: Database",
-    "Topic :: Database :: Front-Ends",
-    "Topic :: Database :: Database Engines/Servers",
-]
-requires-python = ">= 3.8"
-dependencies = [
-    "paradict",
-    "litedbc",
-]
-
-dynamic = ["version"]
-
-[project.urls]
-Homepage = "https://github.com/pyrustic/jinbase"
-
-[project.scripts]
-jinbase = "jinbase.__main__:main"
-
-[tool.setuptools]
-include-package-data = true
-
-[tool.setuptools.packages.find]
-where = ["src"]
-
-[tool.setuptools.dynamic]
-version.file = "VERSION"
 
 [build-system]
 requires = ["setuptools"]
