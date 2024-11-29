@@ -7,6 +7,9 @@ from jinbase.store import Store, RecordInfo
 from jinbase.blob import Blob
 
 
+__all__ = ["Depot"]
+
+
 class Depot(Store):
     """
     This class represents the Depot store.

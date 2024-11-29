@@ -15,6 +15,5 @@ Here are fields exposed in the module:
 | TIMEOUT | `5.0` |
 | TIMESTAMP\_PRECISION | `<TimestampPrecision.MILLISECONDS: 3>` |
 | USER\_HOME | `'/home/alex'` |
-| os | `<module 'os' (frozen)>` |
 
 <p align="right"><a href="#jinbase-api-reference">Back to top</a></p>

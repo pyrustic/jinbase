@@ -6,20 +6,13 @@
 
 The abstract Store class is defined in this module.
 
-## Fields
-- [**All fields**](/docs/api/modules/jinbase/store/__init__/fields.md)
-    - misc = `<module 'jinbase.misc' from '/home/alex/PycharmProjects/jinbase/src/jinbase/misc/__init__.py'>`
-    - queries = `<module 'jinbase.queries' from '/home/alex/PycharmProjects/jinbase/src/jinbase/queries/__init__.py'>`
-
-<p align="right"><a href="#jinbase-api-reference">Back to top</a></p>
-
 ## Classes
 - [**RecordInfo**](/docs/api/modules/jinbase/store/__init__/class-RecordInfo.md): Named tuple returned by store.info()
     - uid: Alias for field number 0
     - datatype: Alias for field number 1
     - created\_at: Alias for field number 2
 - [**Store**](/docs/api/modules/jinbase/store/__init__/class-Store.md): Abstract Store class intended to be subclassed by the Kv, Depot, Queue, and Stack stores
-    - [\_abc\_impl](/docs/api/modules/jinbase/store/__init__/class-Store.md#fields-table) = `<_abc._abc_data object at 0x78b6fc66ce00>`
+    - [\_abc\_impl](/docs/api/modules/jinbase/store/__init__/class-Store.md#fields-table) = `<_abc._abc_data object at 0x7588e47e0c80>`
     - [chunk\_size](/docs/api/modules/jinbase/store/__init__/class-Store.md#properties-table); _getter_
     - [dbc](/docs/api/modules/jinbase/store/__init__/class-Store.md#properties-table); _getter_
     - [filename](/docs/api/modules/jinbase/store/__init__/class-Store.md#properties-table); _getter_

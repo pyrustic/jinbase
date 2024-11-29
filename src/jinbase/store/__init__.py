@@ -8,6 +8,9 @@ from jinbase import queries
 from jinbase.const import Model
 
 
+__all__ = ["Store", "RecordInfo"]
+
+
 RecordInfo = namedtuple("RecordInfo",
                         ("uid", "datatype", "created_at"))
 RecordInfo.__doc__ = """\

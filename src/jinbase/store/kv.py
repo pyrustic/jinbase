@@ -7,6 +7,9 @@ from jinbase.const import Model
 from jinbase.store import Store, RecordInfo
 
 
+__all__ = ["Kv"]
+
+
 class Kv(Store):
     """
     This class represents the Kv store.

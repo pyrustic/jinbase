@@ -6,16 +6,9 @@
 
 The Queue store is defined in this module.
 
-## Fields
-- [**All fields**](/docs/api/modules/jinbase/store/queue/fields.md)
-    - misc = `<module 'jinbase.misc' from '/home/alex/PycharmProjects/jinbase/src/jinbase/misc/__init__.py'>`
-    - queries = `<module 'jinbase.queries' from '/home/alex/PycharmProjects/jinbase/src/jinbase/queries/__init__.py'>`
-
-<p align="right"><a href="#jinbase-api-reference">Back to top</a></p>
-
 ## Classes
 - [**Queue**](/docs/api/modules/jinbase/store/queue/class-Queue.md): This class represents the Queue store. Note that a Queue object isn't intended to be directly instantiated by the user.
-    - [\_abc\_impl](/docs/api/modules/jinbase/store/queue/class-Queue.md#fields-table) = `<_abc._abc_data object at 0x78b6fc642540>`
+    - [\_abc\_impl](/docs/api/modules/jinbase/store/queue/class-Queue.md#fields-table) = `<_abc._abc_data object at 0x7588e4827a40>`
     - [chunk\_size](/docs/api/modules/jinbase/store/queue/class-Queue.md#properties-table); _getter_
     - [dbc](/docs/api/modules/jinbase/store/queue/class-Queue.md#properties-table); _getter_
     - [filename](/docs/api/modules/jinbase/store/queue/class-Queue.md#properties-table); _getter_

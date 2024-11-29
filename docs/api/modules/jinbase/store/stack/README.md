@@ -6,16 +6,9 @@
 
 The Stack store is defined in this module.
 
-## Fields
-- [**All fields**](/docs/api/modules/jinbase/store/stack/fields.md)
-    - misc = `<module 'jinbase.misc' from '/home/alex/PycharmProjects/jinbase/src/jinbase/misc/__init__.py'>`
-    - queries = `<module 'jinbase.queries' from '/home/alex/PycharmProjects/jinbase/src/jinbase/queries/__init__.py'>`
-
-<p align="right"><a href="#jinbase-api-reference">Back to top</a></p>
-
 ## Classes
 - [**Stack**](/docs/api/modules/jinbase/store/stack/class-Stack.md): This class represents the Stack store. Note that a Stack object isn't intended to be directly instantiated by the user.
-    - [\_abc\_impl](/docs/api/modules/jinbase/store/stack/class-Stack.md#fields-table) = `<_abc._abc_data object at 0x78b6fc642c40>`
+    - [\_abc\_impl](/docs/api/modules/jinbase/store/stack/class-Stack.md#fields-table) = `<_abc._abc_data object at 0x7588e47c6740>`
     - [chunk\_size](/docs/api/modules/jinbase/store/stack/class-Stack.md#properties-table); _getter_
     - [dbc](/docs/api/modules/jinbase/store/stack/class-Stack.md#properties-table); _getter_
     - [filename](/docs/api/modules/jinbase/store/stack/class-Stack.md#properties-table); _getter_

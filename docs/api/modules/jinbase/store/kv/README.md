@@ -6,26 +6,9 @@
 
 The Kv store is defined in this module.
 
-## Fields
-- [**All fields**](/docs/api/modules/jinbase/store/kv/fields.md)
-    - misc = `<module 'jinbase.misc' from '/home/alex/PycharmProjects/jinbase/src/jinbase/misc/__init__.py'>`
-    - queries = `<module 'jinbase.queries' from '/home/alex/PycharmProjects/jinbase/src/jinbase/queries/__init__.py'>`
-
-<p align="right"><a href="#jinbase-api-reference">Back to top</a></p>
-
-## Functions
-- [**All functions**](/docs/api/modules/jinbase/store/kv/funcs.md)
-    - [\_ensure\_key](/docs/api/modules/jinbase/store/kv/funcs.md#_ensure_key): No docstring.
-    - [\_get\_int\_key\_criteria](/docs/api/modules/jinbase/store/kv/funcs.md#_get_int_key_criteria): No docstring.
-    - [\_get\_key\_criteria](/docs/api/modules/jinbase/store/kv/funcs.md#_get_key_criteria): No docstring.
-    - [\_get\_key\_type](/docs/api/modules/jinbase/store/kv/funcs.md#_get_key_type): No docstring.
-    - [\_get\_str\_key\_criteria](/docs/api/modules/jinbase/store/kv/funcs.md#_get_str_key_criteria): No docstring.
-
-<p align="right"><a href="#jinbase-api-reference">Back to top</a></p>
-
 ## Classes
 - [**Kv**](/docs/api/modules/jinbase/store/kv/class-Kv.md): This class represents the Kv store. Note that a Kv object isn't intended to be directly instantiated by the user.
-    - [\_abc\_impl](/docs/api/modules/jinbase/store/kv/class-Kv.md#fields-table) = `<_abc._abc_data object at 0x78b6fc641b00>`
+    - [\_abc\_impl](/docs/api/modules/jinbase/store/kv/class-Kv.md#fields-table) = `<_abc._abc_data object at 0x7588e4800540>`
     - [chunk\_size](/docs/api/modules/jinbase/store/kv/class-Kv.md#properties-table); _getter_
     - [dbc](/docs/api/modules/jinbase/store/kv/class-Kv.md#properties-table); _getter_
     - [filename](/docs/api/modules/jinbase/store/kv/class-Kv.md#properties-table); _getter_

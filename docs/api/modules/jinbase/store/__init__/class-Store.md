@@ -16,7 +16,7 @@ Here are fields exposed in the class:
 
 | Field | Value |
 | --- | --- |
-| \_abc\_impl | `<_abc._abc_data object at 0x78b6fc66ce00>` |
+| \_abc\_impl | `<_abc._abc_data object at 0x7588e47e0c80>` |
 
 <p align="right"><a href="#jinbase-api-reference">Back to top</a></p>
 

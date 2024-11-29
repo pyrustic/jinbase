@@ -5,6 +5,9 @@ from jinbase.const import Model
 from jinbase.store import Store, RecordInfo
 
 
+__all__ = ["Stack"]
+
+
 class Stack(Store):
     """
     This class represents the Stack store.

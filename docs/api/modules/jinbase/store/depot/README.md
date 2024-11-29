@@ -6,22 +6,9 @@
 
 The Depot store is defined in this module.
 
-## Fields
-- [**All fields**](/docs/api/modules/jinbase/store/depot/fields.md)
-    - misc = `<module 'jinbase.misc' from '/home/alex/PycharmProjects/jinbase/src/jinbase/misc/__init__.py'>`
-    - queries = `<module 'jinbase.queries' from '/home/alex/PycharmProjects/jinbase/src/jinbase/queries/__init__.py'>`
-
-<p align="right"><a href="#jinbase-api-reference">Back to top</a></p>
-
-## Functions
-- [**All functions**](/docs/api/modules/jinbase/store/depot/funcs.md)
-    - [\_ensure\_position](/docs/api/modules/jinbase/store/depot/funcs.md#_ensure_position): No docstring.
-
-<p align="right"><a href="#jinbase-api-reference">Back to top</a></p>
-
 ## Classes
 - [**Depot**](/docs/api/modules/jinbase/store/depot/class-Depot.md): This class represents the Depot store. Note that a Depot object isn't intended to be directly instantiated by the user.
-    - [\_abc\_impl](/docs/api/modules/jinbase/store/depot/class-Depot.md#fields-table) = `<_abc._abc_data object at 0x78b6fc640400>`
+    - [\_abc\_impl](/docs/api/modules/jinbase/store/depot/class-Depot.md#fields-table) = `<_abc._abc_data object at 0x7588e47ce540>`
     - [chunk\_size](/docs/api/modules/jinbase/store/depot/class-Depot.md#properties-table); _getter_
     - [dbc](/docs/api/modules/jinbase/store/depot/class-Depot.md#properties-table); _getter_
     - [filename](/docs/api/modules/jinbase/store/depot/class-Depot.md#properties-table); _getter_
