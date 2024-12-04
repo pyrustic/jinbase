@@ -264,10 +264,10 @@ class TestRowidsMethod(unittest.TestCase):
         expected = (4, 5, 6, 7, 8)
         timespan = (self._dt1, self._dt2)
         with self.subTest("Ascending"):
-            r = self._store.uids(timespan=timespan)
+            r = self._store.uids(time_range=timespan)
             self.assertEqual(expected, tuple(r))
         with self.subTest("Descending"):
-            r = self._store.uids(timespan=timespan, asc=False)
+            r = self._store.uids(time_range=timespan, asc=False)
             expected = tuple(reversed(expected))
             self.assertEqual(expected, tuple(r))
 
@@ -350,12 +350,12 @@ class TestIteration(unittest.TestCase):
         timespan = (self._dt1, self._dt2)
         with self.subTest("Ascending"):
             r = list()
-            for rowid, val in self._store.iterate(timespan=timespan):
+            for rowid, val in self._store.iterate(time_range=timespan):
                 r.append((rowid, val))
             self.assertEqual(expected, tuple(r))
         with self.subTest("Descending"):
             r = list()
-            for rowid, val in self._store.iterate(timespan=timespan, asc=False):
+            for rowid, val in self._store.iterate(time_range=timespan, asc=False):
                 r.append((rowid, val))
             expected = tuple(reversed(expected))
             self.assertEqual(expected, tuple(r))

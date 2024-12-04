@@ -68,8 +68,8 @@ def split_bin(data, chunk_size):
         yield data
 
 
-def timespan_to_timestamps(epoch_dt, timespan, timestamp_precision):
-    begin, end = timespan
+def time_range_to_timestamps(epoch_dt, time_range, timestamp_precision):
+    begin, end = time_range
     begin = epoch_dt if begin is None else begin
     end = now_dt() if end is None else end
     timestamp_begin = get_timestamp(epoch_dt, begin, timestamp_precision)

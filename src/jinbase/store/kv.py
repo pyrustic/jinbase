@@ -96,14 +96,14 @@ class Kv(Store):
                 uids[key] = uid
             return uids
 
-    def keys(self, *, timespan=None, limit=None, asc=True):
+    def keys(self, *, time_range=None, limit=None, asc=True):
         with self._dbc.cursor() as cur:
             sort_order = "ASC" if asc else "DESC"
-            if timespan is None:
+            if time_range is None:
                 timestamps = None
             else:
-                timestamps = misc.timespan_to_timestamps(self._db_epoch, timespan,
-                                                         self._timestamp_precision)
+                timestamps = misc.time_range_to_timestamps(self._db_epoch, time_range,
+                                                           self._timestamp_precision)
             criteria = _get_key_criteria(timestamps)
             limit = misc.get_limit_spec(limit)
             sql = queries.SELECT_KEYS.format(sort_order=sort_order,
@@ -113,7 +113,7 @@ class Kv(Store):
             for row in cur.fetch():
                 yield row[0]
 
-    def int_keys(self, first=None, last=None, *, timespan=None, limit=None,
+    def int_keys(self, first=None, last=None, *, time_range=None, limit=None,
                  asc=True):
         with self._dbc.cursor() as cur:
             first = first if first is None else int(first)
@@ -123,11 +123,11 @@ class Kv(Store):
                 first = last
                 last = x
             sort_order = "ASC" if asc else "DESC"
-            if timespan is None:
+            if time_range is None:
                 timestamps = None
             else:
-                timestamps = misc.timespan_to_timestamps(self._db_epoch, timespan,
-                                                         self._timestamp_precision)
+                timestamps = misc.time_range_to_timestamps(self._db_epoch, time_range,
+                                                           self._timestamp_precision)
             criteria = _get_int_key_criteria(first, last, timestamps)
             limit = misc.get_limit_spec(limit)
             sql = queries.SELECT_INT_KEYS.format(sort_order=sort_order,
@@ -136,17 +136,17 @@ class Kv(Store):
             for row in cur.fetch():
                 yield row[0]
 
-    def str_keys(self, glob=None, *, timespan=None, limit=None, asc=True):
+    def str_keys(self, glob=None, *, time_range=None, limit=None, asc=True):
         if glob is not None and not isinstance(glob, str):
             msg = "The Glob should be a string"
             raise Exception(msg)
         with self._dbc.cursor() as cur:
             sort_order = "ASC" if asc else "DESC"
-            if timespan is None:
+            if time_range is None:
                 timestamps = None
             else:
-                timestamps = misc.timespan_to_timestamps(self._db_epoch, timespan,
-                                                         self._timestamp_precision)
+                timestamps = misc.time_range_to_timestamps(self._db_epoch, time_range,
+                                                           self._timestamp_precision)
             criteria = _get_str_key_criteria(timestamps)
             limit = misc.get_limit_spec(limit)
             if glob:
@@ -162,8 +162,8 @@ class Kv(Store):
             for row in cur.fetch():
                 yield row[0]
 
-    def iterate(self, *, timespan=None, limit=None, asc=True):
-        for key in self.keys(timespan=timespan, limit=limit, asc=asc):
+    def iterate(self, *, time_range=None, limit=None, asc=True):
+        for key in self.keys(time_range=time_range, limit=limit, asc=asc):
             try:
                 value = self[key]
             except KeyError as e:
@@ -308,15 +308,15 @@ def _get_key_type(key):
 
 
 def _get_key_criteria(timestamps):
-    # timespan_criteria
+    # time_range_criteria
     if timestamps is None:
-        timespan_criteria = ""
+        time_range_criteria = ""
     else:
-        timespan_criteria = queries.KV_CRITERIA_4.format(start=timestamps[0],
+        time_range_criteria = queries.KV_CRITERIA_4.format(start=timestamps[0],
                                                          stop=timestamps[1])
     # criteria
-    if timespan_criteria:
-        criteria = "WHERE {}".format(timespan_criteria)
+    if time_range_criteria:
+        criteria = "WHERE {}".format(time_range_criteria)
     else:
         criteria = ""
     return criteria
@@ -332,34 +332,34 @@ def _get_int_key_criteria(first, last, timestamps):
         key_criteria = queries.KV_CRITERIA_3.format(first=first, last=last)
     else:
         key_criteria = ""
-    # timespan_criteria
+    # time_range_criteria
     if timestamps is None:
-        timespan_criteria = ""
+        time_range_criteria = ""
     else:
-        timespan_criteria = queries.KV_CRITERIA_4.format(start=timestamps[0],
+        time_range_criteria = queries.KV_CRITERIA_4.format(start=timestamps[0],
                                                          stop=timestamps[1])
     # criteria
-    if key_criteria and not timespan_criteria:
+    if key_criteria and not time_range_criteria:
         criteria = "AND {}".format(key_criteria)
-    elif not key_criteria and timespan_criteria:
-        criteria = "AND {}".format(timespan_criteria)
-    elif key_criteria and timespan_criteria:
-        criteria = "AND {} AND {}".format(key_criteria, timespan_criteria)
+    elif not key_criteria and time_range_criteria:
+        criteria = "AND {}".format(time_range_criteria)
+    elif key_criteria and time_range_criteria:
+        criteria = "AND {} AND {}".format(key_criteria, time_range_criteria)
     else:
         criteria = ""
     return criteria
 
 
 def _get_str_key_criteria(timestamps):
-    # timespan_criteria
+    # time_range_criteria
     if timestamps is None:
-        timespan_criteria = ""
+        time_range_criteria = ""
     else:
-        timespan_criteria = queries.KV_CRITERIA_4.format(start=timestamps[0],
+        time_range_criteria = queries.KV_CRITERIA_4.format(start=timestamps[0],
                                                          stop=timestamps[1])
     # criteria
-    if timespan_criteria:
-        criteria = "AND {}".format(timespan_criteria)
+    if time_range_criteria:
+        criteria = "AND {}".format(time_range_criteria)
     else:
         criteria = ""
     return criteria

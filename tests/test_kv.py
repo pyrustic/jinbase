@@ -300,10 +300,10 @@ class TestKeysMethod(unittest.TestCase):
         expected = (1, 2, 3, "admin2", "user1")
         timespan = (self._dt1, self._dt2)
         with self.subTest("Ascending"):
-            r = self._store.keys(timespan=timespan)
+            r = self._store.keys(time_range=timespan)
             self.assertEqual(expected, tuple(r))
         with self.subTest("Descending"):
-            r = self._store.keys(timespan=timespan, asc=False)
+            r = self._store.keys(time_range=timespan, asc=False)
             expected = tuple(reversed(expected))
             self.assertEqual(expected, tuple(r))
 
@@ -332,10 +332,10 @@ class TestKeysMethod(unittest.TestCase):
         expected = ("admin2", "user1")
         timespan = (self._dt1, self._dt2)
         with self.subTest("Ascending"):
-            r = self._store.str_keys(timespan=timespan)
+            r = self._store.str_keys(time_range=timespan)
             self.assertEqual(expected, tuple(r))
         with self.subTest("Descending"):
-            r = self._store.str_keys(timespan=timespan, asc=False)
+            r = self._store.str_keys(time_range=timespan, asc=False)
             expected = tuple(reversed(expected))
             self.assertEqual(expected, tuple(r))
 
@@ -373,10 +373,10 @@ class TestKeysMethod(unittest.TestCase):
         expected = (1, 2, 3)
         timespan = (self._dt1, self._dt2)
         with self.subTest("Ascending"):
-            r = self._store.int_keys(timespan=timespan)
+            r = self._store.int_keys(time_range=timespan)
             self.assertEqual(expected, tuple(r))
         with self.subTest("Descending"):
-            r = self._store.int_keys(timespan=timespan, asc=False)
+            r = self._store.int_keys(time_range=timespan, asc=False)
             expected = tuple(reversed(expected))
             self.assertEqual(expected, tuple(r))
 
@@ -469,12 +469,12 @@ class TestIteration(unittest.TestCase):
         timespan = (self._dt1, self._dt2)
         with self.subTest("Ascending"):
             r = list()
-            for key, val in self._store.iterate(timespan=timespan):
+            for key, val in self._store.iterate(time_range=timespan):
                 r.append((key, val))
             self.assertEqual(expected, tuple(r))
         with self.subTest("Descending"):
             r = list()
-            for key, val in self._store.iterate(timespan=timespan, asc=False):
+            for key, val in self._store.iterate(time_range=timespan, asc=False):
                 r.append((key, val))
             expected = tuple(reversed(expected))
             self.assertEqual(expected, tuple(r))

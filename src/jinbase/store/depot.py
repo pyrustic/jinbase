@@ -108,14 +108,14 @@ class Depot(Store):
             r = cursor.fetchone()[0]
             return r - 1
 
-    def uids(self, *, timespan=None, limit=None, asc=True):
+    def uids(self, *, time_range=None, limit=None, asc=True):
         with self._dbc.cursor() as cur:
-            if timespan is None:
+            if time_range is None:
                 start, stop = 0, misc.get_timestamp(self._db_epoch, misc.now_dt(),
                                                    self._timestamp_precision)
             else:
-                timestamps = misc.timespan_to_timestamps(self._db_epoch, timespan,
-                                                         self._timestamp_precision)
+                timestamps = misc.time_range_to_timestamps(self._db_epoch, time_range,
+                                                           self._timestamp_precision)
                 start, stop = timestamps
             # retrieve uids
             sort_order = "ASC" if asc else "DESC"
@@ -127,8 +127,8 @@ class Depot(Store):
                 uid = row[0]
                 yield uid
 
-    def iterate(self, *, timespan=None, limit=None, asc=True):
-        for uid in self.uids(timespan=timespan, limit=limit, asc=asc):
+    def iterate(self, *, time_range=None, limit=None, asc=True):
+        for uid in self.uids(time_range=time_range, limit=limit, asc=asc):
             yield uid, self.get(uid)
 
     def count_bytes(self, uid=None):

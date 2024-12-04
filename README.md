@@ -60,7 +60,7 @@ For [dictionary](https://en.wikipedia.org/wiki/Associative_array) records only, 
 ## Highly configurable database and timestamped records
 Jinbase exposes a database connection object to the underlying SQLite storage engine, allowing for sophisticated configuration. The [Paradict](https://github.com/pyrustic/paradict) binary data format used for serializing records also allows for customizing data types via a `paradict.TypeRef` object.
 
-Each record stored in a key-value, depot, queue, or stack store is automatically timestamped. This allows the user to provide a timespan tuple when querying records. The precision of the timestamp, which defaults to milliseconds, can also be configured.
+Each record stored in a key-value, depot, queue, or stack store is automatically timestamped. This allows the user to provide a `time_range` tuple when querying records. The precision of the timestamp, which defaults to milliseconds, can also be configured.
 
 
 
@@ -69,7 +69,7 @@ Jinbase implements persistence for familiar data models whose stores coexist in 
 
 For convenience, all Jinbase-related tables are prefixed with `jinbase_`, allowing the user to define their own tables and interact with them as they would with a regular SQLite database. 
 
-Thanks to its multi-model coexistence capability, Jinbase can be used to open existing SQLite databases to add four useful data models (key-value, depot, queue, and stack).
+Thanks to its multi-model coexistence capability, Jinbase can be used to open legacy SQLite databases to add four useful data models (key-value, depot, queue, and stack).
 
 All this makes Jinbase relevant from prototype to production stages of software development of various sizes and scopes. 
 
@@ -88,9 +88,10 @@ Following subsections discuss data models and their corresponding storage interf
 ## Kv
 The [key-value](https://en.wikipedia.org/wiki/Key%E2%80%93value_database) data model associates to a string or an integer key, a value that is serializable with the [Paradict](https://github.com/pyrustic/paradict) binary data format. 
 
-String keys can be searched with a [glob](https://en.wikipedia.org/wiki/Glob_(programming)) pattern and integer keys can be searched within a range of numbers. Since records are automatically timestamped, a [timespan](https://en.wiktionary.org/wiki/timespan) tuple can be provided by the user to search for them as well as keys.
+String keys can be searched with a [glob](https://en.wikipedia.org/wiki/Glob_(programming)) pattern and integer keys can be searched within a range of numbers. Since records are automatically timestamped, a `time_range` tuple can be provided by the user to search for them as well as keys.
 
 Example:
+
 ```python
 import os.path
 from datetime import datetime
@@ -104,32 +105,32 @@ user_data = {"id": 42, "name": "alex", "created_at": datetime.now(),
 db_filename = os.path.join(JINBASE_HOME, "test.db")
 
 with Jinbase(db_filename) as db:
-    # set 'user'
-    kv_store = db.kv
-    kv_store.set("user", user_data)  # returns a UID
+  # set 'user'
+  kv_store = db.kv
+  kv_store.set("user", user_data)  # returns a UID
 
-    # get 'user'
-    data = kv_store.get("user")
-    assert data == user_data
-    
-    # count total records and bytes
-    print(kv_store.count_records())
-    print(kv_store.count_bytes("user"))
+  # get 'user'
+  data = kv_store.get("user")
+  assert data == user_data
 
-    # list keys (the timespan is optional)
-    timespan = ("2024-11-20 10:00:00Z", "2035-11-20 10:00:00Z")
-    print(tuple(kv_store.keys(timespan=timespan)))
-    
-    # find string keys with a glob pattern
-    print(tuple(kv_store.str_keys(glob="use*")))
-    
-    # load the 'books' field (partial access)
-    books = kv_store.load_field("user", "books")
-    assert books == user_data["books"]
+  # count total records and bytes
+  print(kv_store.count_records())
+  print(kv_store.count_bytes("user"))
 
-    # iterate (descending order)
-    for key, value in kv_store.iterate(asc=False):
-        pass
+  # list keys (the time_range is optional)
+  time_range = ("2024-11-20 10:00:00Z", "2035-11-20 10:00:00Z")
+  print(tuple(kv_store.keys(time_range=time_range)))
+
+  # find string keys with a glob pattern
+  print(tuple(kv_store.str_keys(glob="use*")))
+
+  # load the 'books' field (partial access)
+  books = kv_store.load_field("user", "books")
+  assert books == user_data["books"]
+
+  # iterate (descending order)
+  for key, value in kv_store.iterate(asc=False):
+    pass
 ```
 > Check out the API reference for the [key-value store](https://github.com/pyrustic/jinbase/blob/master/docs/api/modules/jinbase/store/kv/class-Kv.md).
 
@@ -160,7 +161,7 @@ with Jinbase(db_filename) as db:
     # get 'user_data'
     data = depot_store.get(uid)
     assert data == user_data
-    
+
     # get the record at position 0 in the depot
     print(depot_store.uid(0))  # prints the UID
     # get the position of a record in the depot
@@ -169,10 +170,10 @@ with Jinbase(db_filename) as db:
     # count total records and bytes
     print(depot_store.count_records())
     print(depot_store.count_bytes(uid))
-    
+
     # list UIDs (unique identifiers)
-    timespan = ("2024-11-20 10:00:00Z", "2035-11-20 10:00:00Z")
-    print(tuple(depot_store.uids(timespan=timespan)))
+    time_range = ("2024-11-20 10:00:00Z", "2035-11-20 10:00:00Z")
+    print(tuple(depot_store.uids(time_range=time_range)))
 
     # load the 'books' field (partial access)
     books = depot_store.load_field(uid, "books")
