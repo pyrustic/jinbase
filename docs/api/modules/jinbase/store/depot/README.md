@@ -8,7 +8,7 @@ The Depot store is defined in this module.
 
 ## Classes
 - [**Depot**](/docs/api/modules/jinbase/store/depot/class-Depot.md): This class represents the Depot store. Note that a Depot object isn't intended to be directly instantiated by the user.
-    - [\_abc\_impl](/docs/api/modules/jinbase/store/depot/class-Depot.md#fields-table) = `<_abc._abc_data object at 0x789010e44100>`
+    - [\_abc\_impl](/docs/api/modules/jinbase/store/depot/class-Depot.md#fields-table) = `<_abc._abc_data object at 0x7eb5e3637440>`
     - [chunk\_size](/docs/api/modules/jinbase/store/depot/class-Depot.md#properties-table); _getter_
     - [dbc](/docs/api/modules/jinbase/store/depot/class-Depot.md#properties-table); _getter_
     - [filename](/docs/api/modules/jinbase/store/depot/class-Depot.md#properties-table); _getter_

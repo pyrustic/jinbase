@@ -17,7 +17,7 @@ Here are fields exposed in the class:
 
 | Field | Value |
 | --- | --- |
-| \_abc\_impl | `<_abc._abc_data object at 0x789010e44100>` |
+| \_abc\_impl | `<_abc._abc_data object at 0x7eb5e3637440>` |
 
 <p align="right"><a href="#jinbase-api-reference">Back to top</a></p>
 
@@ -256,7 +256,7 @@ Return a boolean.
 No docstring
 
 ```python
-def iterate(self, *, timespan=None, limit=None, asc=True):
+def iterate(self, *, time_range=None, limit=None, asc=True):
     ...
 ```
 
@@ -374,7 +374,7 @@ def uid(self, position):
 No docstring
 
 ```python
-def uids(self, *, timespan=None, limit=None, asc=True):
+def uids(self, *, time_range=None, limit=None, asc=True):
     ...
 ```
 

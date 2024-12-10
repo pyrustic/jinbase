@@ -8,7 +8,7 @@ The Queue store is defined in this module.
 
 ## Classes
 - [**Queue**](/docs/api/modules/jinbase/store/queue/class-Queue.md): This class represents the Queue store. Note that a Queue object isn't intended to be directly instantiated by the user.
-    - [\_abc\_impl](/docs/api/modules/jinbase/store/queue/class-Queue.md#fields-table) = `<_abc._abc_data object at 0x789010e46240>`
+    - [\_abc\_impl](/docs/api/modules/jinbase/store/queue/class-Queue.md#fields-table) = `<_abc._abc_data object at 0x7eb5e36495c0>`
     - [chunk\_size](/docs/api/modules/jinbase/store/queue/class-Queue.md#properties-table); _getter_
     - [dbc](/docs/api/modules/jinbase/store/queue/class-Queue.md#properties-table); _getter_
     - [filename](/docs/api/modules/jinbase/store/queue/class-Queue.md#properties-table); _getter_
